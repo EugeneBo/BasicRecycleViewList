@@ -11,34 +11,42 @@ import java.util.List;
 
 public class ContactAdapter extends RecyclerView.Adapter {
 
+    private final static int CONTACT = 0;
+    private final static int DIVIDER = 1;
 
-    private List<Contact> contacts;
+    private List<RecycledItemView> items;
     private Context context;
 
-    public ContactAdapter(List<Contact> contacts, Context context) {
-        this.contacts = contacts;
-        this.context=context;
+    public ContactAdapter(List<RecycledItemView> items, Context context) {
+        this.items = items;
+        this.context = context;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        final View view = LayoutInflater.from(parent.getContext()).inflate(viewType, parent, false);
-        return new ContactViewHolder(view, context); //возвращаем инстанс ViewHolder
+        View view;
+        if (viewType == CONTACT)
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.contact_layout, parent, false);
+        else
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.divider_layout, parent, false);
+
+        return new ContactViewHolder(view, viewType, context); //возвращаем инстанс ViewHolder
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ((ContactViewHolder) holder).bindData(contacts.get(position));
+        ((ContactViewHolder) holder).bindData(items.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return contacts.size();
+        return items.size();
     }
 
     @Override
     public int getItemViewType(int position) {
-        return R.layout.contact_layout;
+        if (items.get(position) instanceof Contact) return CONTACT;
+        else return DIVIDER;
     }
 }

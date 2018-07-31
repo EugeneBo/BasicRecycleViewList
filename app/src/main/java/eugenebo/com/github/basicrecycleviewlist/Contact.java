@@ -1,7 +1,7 @@
 package eugenebo.com.github.basicrecycleviewlist;
 
 
-public class Contact {
+public class Contact implements RecycledItemView {
 
     private String name;
     private String description;
