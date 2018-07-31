@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contactView"
+    android:layout_width="match_parent"
+    android:layout_height="88dp"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:backgroundTint="@android:color/white">
+
+    <ImageView
+        android:id="@+id/avatarImageView"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:contentDescription="@string/avatar_image_view"
+        android:padding="16dp"
+        android:src="@drawable/avatar_circle_40dp" />
+
+    <TextView
+        android:id="@+id/avatarLetters"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        tools:text="ES" />
+
+    <TextView
+        android:id="@+id/nameTextView"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/avatarImageView"
+        android:paddingTop="14dp"
+        android:textSize="16sp"
+        tools:text="Emma Stone" />
+
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameTextView"
+        android:layout_toEndOf="@id/avatarImageView"
+        android:textSize="14sp"
+
+        tools:text="@string/description" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/avatarImageView"
+        android:background="?android:attr/listDivider" />
+
+
+</RelativeLayout>

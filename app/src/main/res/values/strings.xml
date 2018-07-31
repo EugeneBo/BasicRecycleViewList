@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BasicRecycleViewList</string>
+    <string name="avatar_image_view">Contact avatar</string>
+    <string name="description">Interface to global information about an application environment.</string>
+</resources>
