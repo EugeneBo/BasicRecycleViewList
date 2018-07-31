@@ -123,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
                 green = 60;
                 blue = 200;
             }
-
            // Log.i(TAG, "COLOR: " + Color.rgb(red, green, blue));
             contactItem.setAvatarColor(Color.rgb(red, green, blue));
         }

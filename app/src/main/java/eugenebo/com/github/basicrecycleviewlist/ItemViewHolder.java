@@ -43,7 +43,7 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
             avatarLettersTextView.setText(contactItem.getAvatarLetters());
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                Drawable drawable = context.getResources().getDrawable(R.drawable.avatar_circle_40dp);  //Тут что-то не так с заменой цветов!!!
+                Drawable drawable = context.getDrawable(R.drawable.avatar_circle_40dp);  //Тут что-то не так с заменой цветов!!!
                 GradientDrawable gradientDrawable = (GradientDrawable) drawable;
                // Log.i(TAG, "COLOR: " + contactItem.getAvatarColor());
                 gradientDrawable.setColor(contactItem.getAvatarColor());
