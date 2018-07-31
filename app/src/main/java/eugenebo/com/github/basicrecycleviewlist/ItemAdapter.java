@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-public class ContactAdapter extends RecyclerView.Adapter {
+public class ItemAdapter extends RecyclerView.Adapter {
 
     private final static int CONTACT = 0;
     private final static int DIVIDER = 1;
@@ -17,7 +17,7 @@ public class ContactAdapter extends RecyclerView.Adapter {
     private List<RecycledItemView> items;
     private Context context;
 
-    public ContactAdapter(List<RecycledItemView> items, Context context) {
+    public ItemAdapter(List<RecycledItemView> items, Context context) {
         this.items = items;
         this.context = context;
     }
@@ -31,12 +31,12 @@ public class ContactAdapter extends RecyclerView.Adapter {
         else
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.divider_layout, parent, false);
 
-        return new ContactViewHolder(view, viewType, context); //возвращаем инстанс ViewHolder
+        return new ItemViewHolder(view, viewType, context); //возвращаем инстанс ViewHolder
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ((ContactViewHolder) holder).bindData(items.get(position));
+        ((ItemViewHolder) holder).bindData(items.get(position));
     }
 
     @Override

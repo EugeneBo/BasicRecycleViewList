@@ -7,8 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-public class ContactViewHolder extends RecyclerView.ViewHolder {
-    private static final String TAG = "ContactViewHolder";
+public class ItemViewHolder extends RecyclerView.ViewHolder {
+    private static final String TAG = "ItemViewHolder";
 
     private TextView nameTextView;
     private TextView descriptionTextView;
@@ -18,7 +18,7 @@ public class ContactViewHolder extends RecyclerView.ViewHolder {
 
     private int viewType;
 
-    public ContactViewHolder(View itemView, int viewType, Context context) {  //инициализируем объекты view
+    public ItemViewHolder(View itemView, int viewType, Context context) {  //инициализируем объекты view
         super(itemView);
         this.context = context;
         this.viewType = viewType;

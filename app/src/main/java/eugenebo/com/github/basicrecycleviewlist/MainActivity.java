@@ -5,11 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -26,12 +24,12 @@ public class MainActivity extends AppCompatActivity {
             colorGenerator(item);
         }
 
-        ContactAdapter contactAdapter = new ContactAdapter(items, this);
+        ItemAdapter itemAdapter = new ItemAdapter(items, this);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(contactAdapter);
+        recyclerView.setAdapter(itemAdapter);
 
     }
 
