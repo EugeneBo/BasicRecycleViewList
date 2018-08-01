@@ -1,41 +1,31 @@
 package eugenebo.com.github.basicrecycleviewlist;
 
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    private List<RecycledItemView> items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        items = contactListGenerator();
-        for (RecycledItemView item : items) {
-            setContactAvatarLetters(item);
-            colorGenerator(item);
-        }
-
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
-        ItemAdapter itemAdapter = new ItemAdapter(items);
+        ItemAdapter itemAdapter = new ItemAdapter(contactListGenerator());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(itemAdapter);
-
     }
 
-    private List<RecycledItemView> contactListGenerator() {
+    private List<ItemView> contactListGenerator() {
 
-        List<RecycledItemView> items = new ArrayList<>();
+        List<ItemView> items = new ArrayList<>();
         String description = getResources().getString(R.string.description);
 
         items.add(new Divider("Friends"));
@@ -102,50 +92,5 @@ public class MainActivity extends AppCompatActivity {
 
         return items;
     }
-
-    private void colorGenerator(RecycledItemView item) {
-
-        if (item instanceof Contact) {
-            Contact contactItem = (Contact) item;
-
-            int red =2 * (Math.abs((byte) contactItem.hashCode()));
-            int green;
-            int blue;
-
-            if (red % 5 == 0) {
-                green = 95;
-                blue = 75;
-            } else if (red % 3 == 0) {
-                green = 20;
-                blue = 60;
-            } else if (red % 2 == 0) {
-                green = 125;
-                blue = 40;
-            } else {
-                green = 30;
-                blue = 90;
-            }
-           // Log.i(TAG, "COLOR: " + Color.rgb(red, green, blue));
-            contactItem.setAvatarColor(Color.rgb(red, green, blue));
-        }
-    }
-
-    private void setContactAvatarLetters(RecycledItemView item) {
-
-        if (item instanceof Contact) {
-            Contact contactItem = (Contact) item;
-
-            String[] strings = contactItem.getName().trim().split("\\s+");
-
-            if (strings.length >= 2) {
-                contactItem.setAvatarLetters(strings[0].substring(0, 1) + strings[1].substring(0, 1));
-            } else if (strings.length == 1) {
-                contactItem.setAvatarLetters(strings[0].substring(0, 1));
-            } else contactItem.setAvatarLetters("N/A");
-        }
-
-    }
-
-
 
 }

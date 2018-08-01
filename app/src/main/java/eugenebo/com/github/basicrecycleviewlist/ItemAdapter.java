@@ -10,13 +10,13 @@ import java.util.List;
 
 public class ItemAdapter extends RecyclerView.Adapter {
 
-    private final static int CONTACT = 0;
-    private final static int DIVIDER = 1;
+    public final static int CONTACT = 0;
+    public final static int DIVIDER = 1;
 
-    private List<RecycledItemView> items;
+    private List<ItemView> items;
 
 
-    public ItemAdapter(List<RecycledItemView> items) {
+    public ItemAdapter(final List<ItemView> items) {
         this.items = items;
     }
 
