@@ -24,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
             colorGenerator(item);
         }
 
-        ItemAdapter itemAdapter = new ItemAdapter(items, this);
-
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
+
+        ItemAdapter itemAdapter = new ItemAdapter(items);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(itemAdapter);
@@ -108,20 +108,22 @@ public class MainActivity extends AppCompatActivity {
         if (item instanceof Contact) {
             Contact contactItem = (Contact) item;
 
-            int red = 2 * (Math.abs((byte) contactItem.hashCode()));
-                          //Log.i(TAG, "HASH: " + red);
+            int red =2 * (Math.abs((byte) contactItem.hashCode()));
             int green;
             int blue;
 
-            if (red % 2 == 0) {
-                green = 90;
-                blue = 150;
-            } else if (red % 3 == 0) {
-                green = 30;
+            if (red % 5 == 0) {
+                green = 95;
                 blue = 75;
+            } else if (red % 3 == 0) {
+                green = 20;
+                blue = 60;
+            } else if (red % 2 == 0) {
+                green = 125;
+                blue = 40;
             } else {
-                green = 60;
-                blue = 200;
+                green = 30;
+                blue = 90;
             }
            // Log.i(TAG, "COLOR: " + Color.rgb(red, green, blue));
             contactItem.setAvatarColor(Color.rgb(red, green, blue));
@@ -143,4 +145,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
+
 }
