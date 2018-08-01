@@ -12,7 +12,6 @@ public class Contact implements RecycledItemView {
         this.name = name;
         this.description = description;
     }
-
     public String getName() {
         return name;
     }
@@ -28,7 +27,6 @@ public class Contact implements RecycledItemView {
     public void setDescription(String description) {
         this.description = description;
     }
-
 
     public String getAvatarLetters() {
         return avatarLetters;
@@ -48,6 +46,6 @@ public class Contact implements RecycledItemView {
 
     @Override
     public int hashCode() {
-        return name.hashCode();
+        return getAvatarLetters().hashCode();
     }
 }
