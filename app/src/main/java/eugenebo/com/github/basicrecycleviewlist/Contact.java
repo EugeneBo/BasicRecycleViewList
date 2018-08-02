@@ -5,19 +5,16 @@ public class Contact implements ItemView {
 
     private String name;
     private String description;
-    private String avatarLetters;
-    private int avatarColor;
 
     public Contact(final String name, final String description) {
         this.name = name;
         this.description = description;
     }
-
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -25,29 +22,8 @@ public class Contact implements ItemView {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
-
-    public String getAvatarLetters() {
-        return avatarLetters;
-    }
-
-    public void setAvatarLetters(String avatarLetters) {
-        this.avatarLetters = avatarLetters;
-    }
-
-    public int getAvatarColor() {
-        return avatarColor;
-    }
-
-    public void setAvatarColor(int avatarColor) {
-        this.avatarColor = avatarColor;
-    }
-
-    @Override
-    public int hashCode() {
-        return name.hashCode();
-    }
 }
