@@ -11,20 +11,13 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    private List<RecycledItemView> items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        items = contactListGenerator();
-        for (RecycledItemView item : items) {
-            setContactAvatarLetters(item);
-            colorGenerator(item);
-        }
-
-        ItemAdapter itemAdapter = new ItemAdapter(items, this);
+        ItemAdapter itemAdapter = new ItemAdapter(contactListGenerator());
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -33,77 +26,81 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private List<RecycledItemView> contactListGenerator() {
+    private List<ItemView> contactListGenerator() {
 
-        List<RecycledItemView> items = new ArrayList<>();
+        List<ItemView> items = new ArrayList<>();
         String description = getResources().getString(R.string.description);
 
-        items.add(new Divider("Friends"));
+        for (int i = 0; i < 10; i++) {
 
-        items.add(new Contact("Ryan Gosling", description));
-        items.add(new Contact("Ryan Gosling", description));
-        items.add(new Contact("Winona Ryder", description));
-        items.add(new Contact("Winona Ryder", description));
+            items.add(new Header("Friends"));
 
-        items.add(new Divider("Colleges"));
+            items.add(new Contact("Ryan Gosling", description));
+            items.add(new Contact("Ryan Gosling", description));
+            items.add(new Contact("Winona Ryder", description));
+            items.add(new Contact("Winona Ryder", description));
 
-        items.add(new Contact("Wanana Vader", description));
-        items.add(new Contact("Wanana Vader", description));
-        items.add(new Contact("Ryan Gosling", description));
-        items.add(new Contact("Keith", description));
-        items.add(new Contact("Thomas Alan Waits", description));
-        items.add(new Contact("Natalie Portman", description));
-        items.add(new Contact("Mick Jagger", description));
-        items.add(new Contact("Jim Morrison", description));
-        items.add(new Contact("Charlie Sheen", description));
-        items.add(new Contact("Tom Hanks", description));
-        items.add(new Contact("Emma Stone", description));
-        items.add(new Contact("Sergey Stilov", description));
+            items.add(new Header("Colleges"));
 
-        items.add(new Divider("Relatives"));
+            items.add(new Contact("Wanana Vader", description));
+            items.add(new Contact("Wanana Vader", description));
+            items.add(new Contact("Ryan Gosling", description));
+            items.add(new Contact("Keith", description));
+            items.add(new Contact("Thomas Alan Waits", description));
+            items.add(new Contact("Natalie Portman", description));
+            items.add(new Contact("Mick Jagger", description));
+            items.add(new Contact("Jim Morrison", description));
+            items.add(new Contact("Charlie Sheen", description));
+            items.add(new Contact("Tom Hanks", description));
+            items.add(new Contact("Emma Stone", description));
+            items.add(new Contact("Sergey Stilov", description));
 
-        items.add(new Contact("Roger Waters", description));
-        items.add(new Contact("Billie Armstrong", description));
-        items.add(new Contact("Miles Davis", description));
-        items.add(new Contact("Chet Baker", description));
-        items.add(new Contact("Michael", description));
-        items.add(new Contact("Mike Shinoda", description));
-        items.add(new Contact("Jean Reno", description));
-        items.add(new Contact("Lawrence Ellison", description));
-        items.add(new Contact("Ilon Mask", description));
-        items.add(new Contact("Winona Ryder", description));
+            items.add(new Header("Relatives"));
 
-        items.add(new Divider("Service"));
+            items.add(new Contact("Roger Waters", description));
+            items.add(new Contact("Billie Armstrong", description));
+            items.add(new Contact("Miles Davis", description));
+            items.add(new Contact("Chet Baker", description));
+            items.add(new Contact("Michael", description));
+            items.add(new Contact("Mike Shinoda", description));
+            items.add(new Contact("Jean Reno", description));
+            items.add(new Contact("Lawrence Ellison", description));
+            items.add(new Contact("Ilon Mask", description));
+            items.add(new Contact("Winona Ryder", description));
 
-        items.add(new Contact("Winona Ryder", description));
-        items.add(new Contact("Ryan Gosling", description));
-        items.add(new Contact("Ryan Gosling", description));
-        items.add(new Contact("Keith", description));
-        items.add(new Contact("Thomas Alan Waits", description));
-        items.add(new Contact("Natalie Portman", description));
-        items.add(new Contact("Mick Jagger", description));
-        items.add(new Contact("Jim Morrison", description));
-        items.add(new Contact("Charlie Sheen", description));
-        items.add(new Contact("Tom Hanks", description));
-        items.add(new Contact("Emma Stone", description));
+            items.add(new Header("Service"));
 
-        items.add(new Divider("Favorite"));
+            items.add(new Contact("Winona Ryder", description));
+            items.add(new Contact("Ryan Gosling", description));
+            items.add(new Contact("Ryan Gosling", description));
+            items.add(new Contact("Keith", description));
+            items.add(new Contact("Thomas Alan Waits", description));
+            items.add(new Contact("Natalie Portman", description));
+            items.add(new Contact("Mick Jagger", description));
+            items.add(new Contact("Jim Morrison", description));
+            items.add(new Contact("Charlie Sheen", description));
+            items.add(new Contact("Tom Hanks", description));
+            items.add(new Contact("Emma Stone", description));
 
-        items.add(new Contact("Sergey Stilov", description));
-        items.add(new Contact("Roger Waters", description));
-        items.add(new Contact("Billie Armstrong", description));
-        items.add(new Contact("Miles Davis", description));
-        items.add(new Contact("Chet Baker", description));
-        items.add(new Contact("Michael", description));
-        items.add(new Contact("Mike Shinoda", description));
-        items.add(new Contact("Jean Reno", description));
-        items.add(new Contact("Lawrence Ellison", description));
-        items.add(new Contact("zilon zask", description));
+            items.add(new Header("Favorite"));
+
+            items.add(new Contact("Sergey Stilov", description));
+            items.add(new Contact("Roger Waters", description));
+            items.add(new Contact("Billie Armstrong", description));
+            items.add(new Contact("Miles Davis", description));
+            items.add(new Contact("Chet Baker", description));
+            items.add(new Contact("Michael", description));
+            items.add(new Contact("Mike Shinoda", description));
+            items.add(new Contact("Jean Reno", description));
+            items.add(new Contact("Lawrence Ellison", description));
+            items.add(new Contact("zilon zask", description));
+
+        }
 
         return items;
     }
 
-    private void colorGenerator(RecycledItemView item) {
+    private void colorGenerator(ItemView item) {
 
         if (item instanceof Contact) {
             Contact contactItem = (Contact) item;
@@ -128,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void setContactAvatarLetters(RecycledItemView item) {
+    private void setContactAvatarLetters(ItemView item) {
 
         if (item instanceof Contact) {
             Contact contactItem = (Contact) item;

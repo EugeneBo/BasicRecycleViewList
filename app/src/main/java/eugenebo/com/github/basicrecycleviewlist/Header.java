@@ -1,10 +1,10 @@
 package eugenebo.com.github.basicrecycleviewlist;
 
-public class Divider implements RecycledItemView {
+public class Header implements ItemView {
 
     private String dividersHeader;
 
-    public Divider(String dividersHeader) {
+    public Header(String dividersHeader) {
         this.dividersHeader = dividersHeader;
     }
 

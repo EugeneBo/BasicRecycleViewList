@@ -1,6 +1,6 @@
 package eugenebo.com.github.basicrecycleviewlist;
 
-import android.content.Context;
+
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,15 +11,13 @@ import java.util.List;
 
 public class ItemAdapter extends RecyclerView.Adapter {
 
-    private final static int CONTACT = 0;
-    private final static int DIVIDER = 1;
+    public final static int CONTACT = 0;
+    public final static int DIVIDER = 1;
 
-    private List<RecycledItemView> items;
-    private Context context;
+    private List<ItemView> items;
 
-    public ItemAdapter(List<RecycledItemView> items, Context context) {
+    public ItemAdapter(List<ItemView> items) {
         this.items = items;
-        this.context = context;
     }
 
     @NonNull
@@ -31,7 +29,7 @@ public class ItemAdapter extends RecyclerView.Adapter {
         else
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.divider_layout, parent, false);
 
-        return new ItemViewHolder(view, viewType, context); //возвращаем инстанс ViewHolder
+        return new ItemViewHolder(view, viewType); //возвращаем инстанс ViewHolder
     }
 
     @Override
