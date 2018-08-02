@@ -28,7 +28,7 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
             avatarLettersTextView = itemView.findViewById(R.id.avatarLetters);
             imageView = itemView.findViewById(R.id.avatarImageView);
         } else {
-            nameTextView = itemView.findViewById((R.id.dividerTextView));
+            nameTextView = itemView.findViewById((R.id.headerTextView));
         }
 
     }

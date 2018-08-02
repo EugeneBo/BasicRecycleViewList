@@ -27,7 +27,7 @@ public class ItemAdapter extends RecyclerView.Adapter {
         if (viewType == CONTACT)
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.contact_layout, parent, false);
         else
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.divider_layout, parent, false);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.header_layout, parent, false);
 
         return new ItemViewHolder(view, viewType); //возвращаем инстанс ViewHolder
     }
