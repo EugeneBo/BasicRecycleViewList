@@ -100,44 +100,4 @@ public class MainActivity extends AppCompatActivity {
         return items;
     }
 
-    private void colorGenerator(ItemView item) {
-
-        if (item instanceof Contact) {
-            Contact contactItem = (Contact) item;
-
-            int red = 2 * (Math.abs((byte) contactItem.hashCode()));
-                          //Log.i(TAG, "HASH: " + red);
-            int green;
-            int blue;
-
-            if (red % 2 == 0) {
-                green = 90;
-                blue = 150;
-            } else if (red % 3 == 0) {
-                green = 30;
-                blue = 75;
-            } else {
-                green = 60;
-                blue = 200;
-            }
-           // Log.i(TAG, "COLOR: " + Color.rgb(red, green, blue));
-            contactItem.setAvatarColor(Color.rgb(red, green, blue));
-        }
-    }
-
-    private void setContactAvatarLetters(ItemView item) {
-
-        if (item instanceof Contact) {
-            Contact contactItem = (Contact) item;
-
-            String[] strings = contactItem.getName().trim().split("\\s+");
-
-            if (strings.length >= 2) {
-                contactItem.setAvatarLetters(strings[0].substring(0, 1) + strings[1].substring(0, 1));
-            } else if (strings.length == 1) {
-                contactItem.setAvatarLetters(strings[0].substring(0, 1));
-            } else contactItem.setAvatarLetters("N/A");
-        }
-
-    }
 }
