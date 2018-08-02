@@ -6,6 +6,7 @@ public class Contact implements ItemView {
     private String name;
     private String description;
 
+
     public Contact(final String name, final String description) {
         this.name = name;
         this.description = description;
