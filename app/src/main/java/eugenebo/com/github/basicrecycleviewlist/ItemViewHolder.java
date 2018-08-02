@@ -60,7 +60,6 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-
     private int colorGenerator(final Contact contactItem) {
 
         int red = 2 * contactItem.getName().trim().charAt(0);
