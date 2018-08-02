@@ -22,7 +22,7 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         this.viewType = viewType;
 
-        if (viewType == 0) {
+        if (viewType == ItemAdapter.CONTACT) {
             nameTextView = itemView.findViewById(R.id.nameTextView);
             descriptionTextView = itemView.findViewById(R.id.descriptionTextView);
             avatarLettersTextView = itemView.findViewById(R.id.avatarLetters);

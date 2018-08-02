@@ -1,6 +1,5 @@
 package eugenebo.com.github.basicrecycleviewlist;
 
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,13 +15,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
         ItemAdapter itemAdapter = new ItemAdapter(contactListGenerator());
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setAdapter(itemAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(itemAdapter);
 
     }
 
